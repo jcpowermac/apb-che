@@ -23,7 +23,14 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     usermod -p "*" user && \
     sed -i 's/requiretty/!requiretty/g' /etc/sudoers
 
-USER user
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ADD https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh /home/user/
 
+RUN chown user:users /home/user/install.sh && \
+    chmod 755 /home/user/install.sh
+
+USER user
+ENV HOME=/home/user
+RUN /home/user/install.sh
+
+WORKDIR /projects
 CMD tail -f /dev/null
