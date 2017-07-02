@@ -1,6 +1,9 @@
 {
-  "id": "ansible-playbook-bundle",
+  "id": "apb",
   "name": "Ansible Playbook Bundle",
+  "description": "Ansible Playbook Bundle",
+  "creator": "che",
+  "scope": "general",
   "components": [
     {
       "version": "9.0.1",
@@ -41,8 +44,7 @@
               "org.eclipse.che.terminal",
               "org.eclipse.che.ssh",
               "org.eclipse.che.ws-agent",
-              "org.eclipse.che.ls.python",
-              "org.eclipse.che.ls.json"
+              "org.eclipse.che.ls.python"
             ]
           }
         },
@@ -58,8 +60,5 @@
     "name": "default",
     "commands": [],
     "links": []
-  },
-  "description": "Ansible Playbook Bundle",
-  "creator": "che",
-  "scope": "advanced"
+  }
 }

@@ -4,7 +4,7 @@ EXPOSE 4403 8080 8000 22
 RUN dnf --setopt=deltarpm=false upgrade -y && \
     dnf install -y nodejs bzip2 sudo git openssh-server procps \
                    unzip nmap python-pip ansible wget curl zsh docker \
-                   java-1.8.0-openjdk origin-clients && \
+                   java-1.8.0-openjdk origin-clients vim && \
     dnf clean all
 
 RUN pip install -U pip && \
