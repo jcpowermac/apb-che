@@ -44,7 +44,8 @@
               "org.eclipse.che.terminal",
               "org.eclipse.che.ssh",
               "org.eclipse.che.ws-agent",
-              "org.eclipse.che.ls.python"
+              "org.eclipse.che.ls.python",
+              "org.eclipse.che.git-credentials"
             ]
           }
         },
