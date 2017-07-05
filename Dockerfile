@@ -15,8 +15,9 @@ RUN git clone https://github.com/fusor/ansible-playbook-bundle.git /tmp/apb && \
     cd /tmp/apb && \
     pip install -r src/requirements.txt && \
     python setup.py install && \
+    ansible-galaxy install ansible.kubernetes-modules && \
     cd / && \
-    rm -rf /tmp/apb
+    rm -rf /tmp/apb 
 
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
