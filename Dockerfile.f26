@@ -1,4 +1,4 @@
-FROM fedora:27
+FROM fedora:26
 
 EXPOSE 4403 8080 8000 22
 ENV REQUIRED_PKGS="bzip2 sudo git procps unzip python-pip ansible wget curl docker java-1.8.0-openjdk origin-clients dnf-plugins-core" \
@@ -9,7 +9,7 @@ RUN dnf --setopt=deltarpm=false upgrade -y && \
     dnf clean all
 
 RUN dnf -y copr enable @ansible-service-broker/ansible-service-broker-latest && \
-    dnf -y install apb ansible-asb-modules ansible-kubernetes-modules
+    dnf -y install apb
 
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
