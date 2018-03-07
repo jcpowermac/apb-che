@@ -2,7 +2,7 @@ FROM fedora:27
 
 EXPOSE 4403 8080 8000 22
 ENV REQUIRED_PKGS="bzip2 sudo git procps unzip python-pip ansible wget curl docker java-1.8.0-openjdk origin-clients dnf-plugins-core" \
-    OPTIONAL_PKGS="zsh vim openssh-server nmap vim-jedi vim-powerline vim-pysmell vim-syntastic vim-syntastic-python"
+    OPTIONAL_PKGS="ara zsh vim openssh-server nmap vim-jedi vim-powerline vim-pysmell vim-syntastic vim-syntastic-python"
 
 RUN dnf --setopt=deltarpm=false upgrade -y && \
     dnf install -y ${REQUIRED_PKGS} ${OPTIONAL_PKGS} && \
