@@ -1,3 +1,5 @@
+[![Docker Repository on Quay](https://quay.io/repository/jcallen/che-stack-apb/status "Docker Repository on Quay")](https://quay.io/repository/jcallen/che-stack-apb)
+
 ### Eclipse Che stack for Ansible Playbook Bundle
 
 Provides an easy way to get started with APBs without having to install any software
@@ -15,7 +17,7 @@ except Docker.
     # Optional, but required if running `docker build` within workspace
     CHE_WORKSPACE_VOLUME=/var/run/docker.sock:/var/run/docker.sock:rw,Z;
 
-    # Optional, but easier to manage 
+    # Optional, but easier to manage
     CHE_OAUTH_GITHUB_CLIENTID=
     CHE_OAUTH_GITHUB_CLIENTSECRET=
     CHE_OAUTH_GITHUB_AUTHURI= https://github.com/login/oauth/authorize
