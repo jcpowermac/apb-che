@@ -9,8 +9,13 @@ RUN dnf --setopt=deltarpm=false upgrade -y && \
     dnf clean all && \
     rm -rf /var/lib/rpm/__db.00*
 
+# Install Ansible Service Broker and Ansible Playbook Bundle tools
 RUN dnf -y copr enable @ansible-service-broker/ansible-service-broker-latest && \
     dnf -y install apb ansible-asb-modules ansible-kubernetes-modules
+
+# Install Service Catalog CLI
+RUN curl --url https://download.svcat.sh/cli/latest/linux/amd64/svcat --output /usr/local/bin/svcat && \
+    chmod +x /usr/local/bin/svcat
 
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
