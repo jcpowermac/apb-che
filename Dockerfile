@@ -2,7 +2,7 @@ FROM quay.io/jcallen/che-fedora-base
 
 EXPOSE 8080 8000 9191
 ENV REQUIRED_PKGS="bzip2 procps python-pip ansible docker origin-clients dnf-plugins-core" \
-    OPTIONAL_PKGS="ara zsh vim vim-jedi vim-powerline vim-pysmell vim-syntastic vim-syntastic-python"
+    OPTIONAL_PKGS="python-psycopg2 ara zsh vim vim-jedi vim-powerline vim-pysmell vim-syntastic vim-syntastic-python"
 
 USER root
 RUN dnf install -y ${REQUIRED_PKGS} ${OPTIONAL_PKGS} && \

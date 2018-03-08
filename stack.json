@@ -1,0 +1,69 @@
+{
+  "description": "Service Broker Dev",
+  "scope": "advanced",
+  "creator": "a0d2db09-a795-45e0-b9b1-5bde95c3863d",
+  "workspaceConfig": {
+    "environments": {
+      "default": {
+        "recipe": {
+          "contentType": "text/x-yaml",
+          "type": "compose",
+          "content": "services:\n db:\n  image: centos/postgresql-96-centos7\n  environment:\n   POSTGRESQL_USER: ara\n   POSTGRESQL_PASSWORD: password\n   POSTGRESQL_DATABASE: ara\n  mem_limit: 1073741824\n  expose:\n   - '5432'\n dev-machine:\n  image: 'quay.io/jcallen/che-stack-apb:ara'\n  mem_limit: 2147483648\n  expose:\n   - '9191'\n  depends_on:\n   - db\n"
+        },
+        "machines": {
+          "db": {
+            "env": {},
+            "servers": {
+              "postgresql": {
+                "attributes": {},
+                "protocol": "postgres",
+                "port": "5432"
+              }
+            },
+            "installers": [],
+            "volumes": {},
+            "attributes": {
+              "memoryLimitBytes": "1073741824"
+            }
+          },
+          "dev-machine": {
+            "env": {},
+            "servers": {
+              "ara": {
+                "attributes": {},
+                "protocol": "http",
+                "port": "9191"
+              }
+            },
+            "installers": [
+              "org.eclipse.che.ws-agent",
+              "org.eclipse.che.terminal",
+              "org.eclipse.che.ssh",
+              "org.eclipse.che.exec",
+              "org.eclipse.che.git-credentials"
+            ],
+            "volumes": {},
+            "attributes": {
+              "memoryLimitBytes": "2147483648"
+            }
+          }
+        }
+      }
+    },
+    "commands": [],
+    "projects": [],
+    "defaultEnv": "default",
+    "name": "wksp-ahs8",
+    "links": []
+  },
+  "components": [],
+  "tags": [
+    "ansible",
+    "ansible playbook bundle",
+    "postgresql",
+    "apb",
+    "asb"
+  ],
+  "name": "apb",
+  "id": "stack7betocij5yr044rf"
+}
